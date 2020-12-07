@@ -34,4 +34,19 @@ class ManhattanDistanceTest {
         int result = manhattanDistance.manhattanDistance(new Point(5,0), new Point(1, 0));
         assertEquals(4, result);
     }
+
+    @Test
+    @DisplayName("test y coordinate")
+    void testYCoordinate() {
+        int result = manhattanDistance.manhattanDistance(new Point(0,100) , new Point(0, 99));
+        assertEquals(1, result);
+    }
+
+    @Test
+    @DisplayName("test negative values")
+    void testNegativeValues() {
+        int result = manhattanDistance.manhattanDistance(new Point(-100, -100), new Point(100,100));
+        assertEquals(400, result );
+    }
+
 }
