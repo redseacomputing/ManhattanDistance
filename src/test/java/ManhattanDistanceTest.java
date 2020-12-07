@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,21 +12,6 @@ class ManhattanDistanceTest {
     @BeforeEach
     void setUp() {
         manhattanDistance = new ManhattanDistance();
-    }
-
-    @Test
-    @DisplayName("test abstract data type point")
-    void testAbstractDataTypePoint() {
-        Point one = new Point(0,0);
-        Point two = one;
-        assertEquals(one,two);
-    }
-
-    @Test
-    @DisplayName("test method manhattan distance")
-    void testMethodManhattanDistance() {
-        int result = manhattanDistance.manhattanDistance(new Point(0,0),new Point(0,0));
-        assertEquals(0, result);
     }
 
     @Test
@@ -45,8 +31,54 @@ class ManhattanDistanceTest {
     @Test
     @DisplayName("test negative values")
     void testNegativeValues() {
-        int result = manhattanDistance.manhattanDistance(new Point(-100, -100), new Point(100,100));
+        int result = manhattanDistance.manhattanDistance(new Point(0, 0), new Point(200,200));
         assertEquals(400, result );
     }
+
+    @Test
+    @Disabled
+    @DisplayName("test negative maximum value of x coordinate from the start point")
+    void testNegativeMaximumValueOfXFromTheStartPoint() {
+        int result = manhattanDistance.manhattanDistance(new Point(Integer.MIN_VALUE, 0), new Point(0,0));
+        assertEquals(Math.abs(Integer.MIN_VALUE), result);
+    }
+    @Test
+    @Disabled
+    @DisplayName("test negative maximum value of x coordinate from the end point")
+    void testNegativeMaximumValuesOfXFromTheEndPoint() {
+        int result = manhattanDistance.manhattanDistance(new Point(0, 0), new Point(Integer.MIN_VALUE,0));
+        assertEquals(Math.abs(Integer.MIN_VALUE), result);
+    }
+
+    @Test
+    @Disabled
+    @DisplayName("test negative maximum value of y coordinate from the end point")
+    void testMaximumValuesOfYFromTheStartPoint() {
+        int result = manhattanDistance.manhattanDistance(new Point(0, Integer.MIN_VALUE), new Point(0,0));
+        assertEquals(Math.abs(Integer.MIN_VALUE), result);
+    }
+
+    @Test
+    @Disabled
+    @DisplayName("test negative maximum value of y coordinate from the end point")
+    void testMaximumValuesOFXFromTheEndPoint() {
+        int result = manhattanDistance.manhattanDistance(new Point(0, 0), new Point(0,Integer.MIN_VALUE));
+        assertEquals(Math.abs(Integer.MIN_VALUE), result);
+    }
+
+    @Test
+    @Disabled
+    @DisplayName("test maximum negative and maximum positive vale from X coordinate")
+    void testMaximumNegativeAndMaximumPositiveValeFromXCoordinate() {
+        int result = manhattanDistance.manhattanDistance(new Point(Integer.MIN_VALUE,0), new Point(Integer.MAX_VALUE,0));
+        assertEquals(1,result );
+    }
+
+
+
+
+
+
+
 
 }
