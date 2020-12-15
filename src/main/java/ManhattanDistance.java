@@ -1,6 +1,6 @@
 public class ManhattanDistance {
 
-    public int manhattanDistance(Point start, Point end) {
+    public int of(Point start, Point end) {
         if(!validatePoints(start,end)){
             System.err.println("Coordinates have to be equal or more than zero");
             System.exit(-1);
