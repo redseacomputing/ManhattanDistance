@@ -15,15 +15,13 @@ class ManhattanDistanceTest {
     }
 
     @Test
-    @DisplayName("test x coordinate")
-    void testXCoordinate() {
+    void manhattanDistance_should_return_4_on_x_coordinate() {
         int result = manhattanDistance.of(new Point(5,0), new Point(1, 0));
         assertEquals(4, result);
     }
 
     @Test
-    @DisplayName("test y coordinate")
-    void testYCoordinate() {
+    void manhattanDistance_should_return_1_on_y_coordinate() {
         int result = manhattanDistance.of(new Point(0,100) , new Point(0, 99));
         assertEquals(1, result);
     }
@@ -31,7 +29,7 @@ class ManhattanDistanceTest {
     @Test
     @DisplayName("test negative values")
     void testNegativeValues() {
-        int result = manhattanDistance.of(new Point(0, 0), new Point(200,200));
+        int result = manhattanDistance.of(new Point(-100, -100), new Point(100,100));
         assertEquals(400, result );
     }
 

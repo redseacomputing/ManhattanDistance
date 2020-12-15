@@ -1,10 +1,7 @@
 public class ManhattanDistance {
 
     public int of(Point start, Point end) {
-        if(!validatePoints(start,end)){
-            System.err.println("Coordinates have to be equal or more than zero");
-            System.exit(-1);
-        }
+
 
             int xResult = Math.max(start.x, end.x) - Math.min(start.x, end.x);
             int yResult = Math.max(start.y, end.y) - Math.min(start.y, end.y);
@@ -14,12 +11,16 @@ public class ManhattanDistance {
 
         }
 
-        private boolean validatePoints(Point start, Point end){
+        private void validatePoints(Point start, Point end){
             if (start.x < 0 || start.y < 0 || end.x < 0 || end.y == 0){
-                return false;
+                throw new CorruptCoordinatesOfClassPointException("Corrupt coordinate values");
             }
-            return true;
         }
 
+    private class CorruptCoordinatesOfClassPointException extends RuntimeException {
+        public CorruptCoordinatesOfClassPointException(String message) {
+            super(message);
+        }
     }
+}
 
